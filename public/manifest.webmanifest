@@ -1,0 +1,16 @@
+{
+  "name": "Hafiz Riaz — Personal Brand & Portfolio",
+  "short_name": "Hafiz Riaz",
+  "description": "Personal brand and professional portfolio of Hafiz Riaz.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#18181b",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "48x48 72x72 96x96 128x128 256x256",
+      "type": "image/svg+xml"
+    }
+  ]
+}

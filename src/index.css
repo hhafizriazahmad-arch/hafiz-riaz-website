@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Editorial Light Palette (Default) */
+  --color-bg: #fcfcfd;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #f4f4f5;
+  --color-border: #e4e4e7;
+  --color-border-hover: #d4d4d8;
+  --color-text: #18181b;
+  --color-text-muted: #52525b;
+  --color-text-subtle: #71717a;
+  
+  --font-fluid-hero: clamp(2.25rem, 5vw + 1rem, 4.25rem);
+  --font-fluid-h1: clamp(1.85rem, 3.5vw + 0.8rem, 3rem);
+  --font-fluid-h2: clamp(1.5rem, 2.5vw + 0.5rem, 2.25rem);
+  --font-fluid-h3: clamp(1.25rem, 1.5vw + 0.4rem, 1.65rem);
+  --font-fluid-body: clamp(1rem, 0.4vw + 0.9rem, 1.125rem);
+}
+
+.dark {
+  /* Editorial Dark Palette */
+  --color-bg: #09090b;
+  --color-surface: #121215;
+  --color-surface-elevated: #18181c;
+  --color-border: #27272a;
+  --color-border-hover: #3f3f46;
+  --color-text: #f4f4f5;
+  --color-text-muted: #a1a1aa;
+  --color-text-subtle: #71717a;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Focus visible accessibility outline */
+  *:focus-visible {
+    outline: 2px solid #0284c7;
+    outline-offset: 2px;
+  }
+
+  /* Selection style */
+  ::selection {
+    background-color: #e0effe;
+    color: #0c3d6f;
+  }
+
+  .dark ::selection {
+    background-color: rgba(2, 132, 199, 0.35);
+    color: #f0f7ff;
+  }
+}
+
+/* Fluid typography utility classes */
+.fluid-hero {
+  font-size: var(--font-fluid-hero);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.fluid-h1 {
+  font-size: var(--font-fluid-h1);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+}
+
+.fluid-h2 {
+  font-size: var(--font-fluid-h2);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.fluid-h3 {
+  font-size: var(--font-fluid-h3);
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+.fluid-body {
+  font-size: var(--font-fluid-body);
+  line-height: 1.65;
+}
+
+/* Subtle editorial serif font helper */
+.font-serif-editorial {
+  font-family: 'Newsreader', Georgia, serif;
+}
+
+/* Mobile tap target enforcement (>= 44px) */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile safe area helpers */
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Reduce motion when user prefers */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
